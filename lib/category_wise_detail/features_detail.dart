@@ -5,7 +5,8 @@ import 'list_all_item_in_way.dart';
 
  features(double sheetItemHeight) {
     return Container(
-      padding: EdgeInsets.only(top: 15, left: 40),
+      // padding: EdgeInsets.only(top: 15),
+      padding: EdgeInsets.only(top: 15, left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

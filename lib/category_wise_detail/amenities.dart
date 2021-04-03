@@ -12,7 +12,7 @@ offerDetails(double sheetItemHeight) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Offer Details",
+            "amenities",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w700,

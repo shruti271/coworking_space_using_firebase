@@ -134,6 +134,7 @@ final headingStyle = TextStyle(
 //using all app self maded
 String selectedLocation="";
 // List<int> favList = List<int>();
+ // ignore: deprecated_member_use
 List<int> fav = List<int>();
 
 

@@ -1,9 +1,14 @@
+// import 'dart:io';
+
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:coworking_space/models/Product.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import 'floating_widget.dart';
 import 'menu_widget.dart';
+// import 'space_cart/models/cart.dart';
+import '../models/cart.dart';
 
 // ignore: must_be_immutable
 class ItemDetailScreen extends StatelessWidget {
@@ -113,6 +118,17 @@ class ItemDetailScreen extends StatelessWidget {
                               iconImg: Icons.add_shopping_cart,
                               iconColor: ColorConstant.kWhiteColor,
                               conBackColor: Colors.transparent,
+                              onbtnTap: () {
+                                // ignore: deprecated_member_use
+                                Scaffold.of(context).showSnackBar(SnackBar(
+                                  duration: Duration(seconds: 3),
+                                  content: Text('Item Added to Cart'),
+                                ));
+                                // cart.addItem(1, "work", 23.5);
+                                
+                                demoCarts.add(Cart(product: demoProducts[1], numOfItem: 3));
+                                // print(demoCarts.length);
+                              },
                             ),
                           ],
                         ),

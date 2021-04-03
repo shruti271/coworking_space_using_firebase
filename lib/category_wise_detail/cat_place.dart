@@ -1,7 +1,6 @@
 import 'package:coworking_space/screens/home/components/search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:coworking_space/constants.dart';
 // import 'package:coworking_space/screens/home/components/search_field.dart';
 import '../constants.dart';
 import 'filter_widget.dart';
@@ -18,7 +17,6 @@ class CategoryWiseProductPage extends StatelessWidget {
     "<\$220.000",
     "For sale",
     "3-4 beds",
-    "Kitchen",
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,11 +57,10 @@ class CategoryWiseProductPage extends StatelessWidget {
                   MenuWidget(
                     iconImg: Icons.subject,
                     iconColor: ColorConstant.kBlackColor,
-                  ),
-                  // SearchField(),
+                  ),                  
                   Text(arguments['SpaceCategory'],style: TextStyle(fontSize: 30,color: Colors.black),),
                   MenuWidget(
-                    iconImg: Icons.repeat,
+                    iconImg: Icons.add_shopping_cart,
                     iconColor: ColorConstant.kBlackColor,
                   ),
                 ],
@@ -73,8 +70,10 @@ class CategoryWiseProductPage extends StatelessWidget {
               ),
               // Text(arguments['SpaceCategory'],style: TextStyle(fontSize: 30,color: Colors.black),),
               SearchField(),
+              SizedBox(height: 10,),
               Text(
                 selectedLocation,
+                style: TextStyle(fontSize: 25),
                 // style: GoogleFonts.Muli(  
                 //   fontSize: 12,
                 //   color: ColorConstant.kGreyColor,
@@ -84,14 +83,14 @@ class CategoryWiseProductPage extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "San Francisco",
+                "no of place",
                   // style: GoogleFonts.notoSans(
                   //   fontSize: 36,
                   //   color: ColorConstant.kBlackColor,
                   //   fontWeight: FontWeight.w500,
                   // ),
                 ),
-                Divider(
+              Divider(
                 color: ColorConstant.kGreyColor,
                 thickness: .2,
               ),

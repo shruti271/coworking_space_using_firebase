@@ -18,6 +18,7 @@ class ProfileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      // ignore: deprecated_member_use
       child: FlatButton(
         padding: EdgeInsets.all(20),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -32,7 +33,8 @@ class ProfileMenu extends StatelessWidget {
             ),
             SizedBox(width: 20),
             Expanded(child: Text(text)),
-            Icon(Icons.arrow_forward_ios),
+            // Icon(Icons.arrow_forward_ios),
+            
           ],
         ),
       ),

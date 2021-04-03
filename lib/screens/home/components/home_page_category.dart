@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coworking_space/category_wise_detail/cat_place.dart';
-
+import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import 'section_title.dart';
+// import 'section_title.dart';
 
 class CategoryOfPlace extends StatelessWidget {
   const CategoryOfPlace({
@@ -14,19 +14,38 @@ class CategoryOfPlace extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
-            title: "category",
-            press: () {},
-          ),
-        ),
+        Text("category",style: TextStyle(fontWeight: FontWeight.bold),),
+        // Padding(
+        //   padding:
+        //       EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(6)),              
+        //   child: Text("category",textAlign: TextAlign.left),
+        // ),
+         
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
+        //       StreamBuilder(stream: Firestore.instance.collection('category_space').snapshots(),
+        //        // ignore: missing_return
+        //        builder: (BuildContext context, snapshot){
+                 
+        //          if (!snapshot.hasData) {
+        //     return Center(
+        //       child: Text("hello error"),
+        //     );
+        //   }
+  
+          // return ListView(
+          //   children: snapshot.data.documents.map((document) {
+          //     return Container(
+          //       child: Center(child: Text(document['name'])),
+          //     );
+          //   }).toList(),
+          // );
+              //  }
+              //  ),
+               
               CategoryCard(imgName:"imgs/o4.jpg",categoryName:"office",routeName:CategoryWiseProductPage.routeName),
                CategoryCard(imgName:"imgs/o5.jpg",categoryName:"meeting space",routeName:CategoryWiseProductPage.routeName),
               SizedBox(width: getProportionateScreenWidth(20)),
@@ -60,6 +79,7 @@ class CategoryCard extends StatelessWidget {
             Navigator.pushNamed(context,routeName,arguments:{'SpaceCategory':categoryName});
         else
            {             
+             // ignore: deprecated_member_use
           Scaffold.of(context).showSnackBar(SnackBar(  
             content: Text('city must be choosen.!!! '),  
             duration: Duration(seconds: 5),  

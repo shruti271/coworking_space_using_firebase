@@ -11,10 +11,11 @@ class RentButton extends StatelessWidget {
       alignment: Alignment.bottomRight,
       child: SizedBox(
         width: 200,
+        // ignore: deprecated_member_use
         child: FlatButton(
           onPressed: () {},
           child: Text(
-            "Rent Car",
+            "book now",
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,

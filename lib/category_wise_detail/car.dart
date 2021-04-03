@@ -103,3 +103,36 @@ class Car {
     @required this.specifications,
   });
 }
+
+// -----------co working space
+SpaceList allspacelist = SpaceList(spaces: [
+  Features(
+    amenities: [
+      {Icon(Icons.print_sharp, size: iconSize): "printer"},
+      {Icon(Icons.ac_unit_rounded, size: iconSize): "A/C"},
+    ],
+     spaceinfo: [
+       {Icon(Icons.set_meal, size: iconSize): "seat"},
+       {Icon(Icons.wifi, size: iconSize): "wifi"}
+
+  ])
+ 
+  
+],
+);
+class SpaceList {
+  List<Features> spaces;
+
+  SpaceList({
+    @required this.spaces,
+  });
+}
+class Features{
+  List<Map<Icon, String>> amenities;
+  List<Map<Icon, String>> spaceinfo;
+
+  Features({   
+    @required this.amenities,
+    @required this.spaceinfo,
+  });
+}

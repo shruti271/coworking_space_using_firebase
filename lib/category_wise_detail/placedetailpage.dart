@@ -1,11 +1,9 @@
 // necessary page
-import 'buy_button_main.dart';
-import 'custom_sheet_page.dart';
+import 'package:coworking_space/category_wise_detail/sheetcontainer.dart';
+// import 'buy_button_main.dart';
 import 'item_detaile_page.dart';
-// import 'personal_space_main.dart';
 import 'package:flutter/material.dart';
 import 'package:coworking_space/constants.dart';
-
 
 // ignore: must_be_immutable
 class LayoutStarts extends StatelessWidget {
@@ -25,9 +23,9 @@ class LayoutStarts extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          ItemDetailScreen(this.house, this.imgpath_index, this.imageList),
-          CustomBottomSheet(),
-          RentButton(),
+          ItemDetailScreen(this.house, this.imgpath_index, this.imageList),          
+          SheetContainer(),          
+          // RentButton(),
         ],
       ),
     );

@@ -1,6 +1,7 @@
+import 'package:coworking_space/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:coworking_space/routes.dart';
-import 'package:coworking_space/screens/splash/splash_screen.dart';
+// import 'package:coworking_space/screens/splash/splash_screen.dart';
 
 
 import 'package:coworking_space/theme.dart';
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: theme(),
-      home: SplashScreen(),
-      // home: HomeScreen(),
+      // home: SplashScreen(),
+      home: HomeScreen(),
       // We use routeName so that we dont need to remember the name
       // initialRoute: SplashScreen.routeName,//last ma reove this comment
       routes: routes,
