@@ -1,6 +1,10 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coworking_space/category_wise_detail/cat_place.dart';
+import 'package:coworking_space/category_wise_detail/category.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 // import 'section_title.dart';
@@ -12,47 +16,58 @@ class CategoryOfPlace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CategoryNotifier curcat =Provider.of<CategoryNotifier>(context,listen: false);
+
     return Column(
       children: [
         Text("category",style: TextStyle(fontWeight: FontWeight.bold),),
-        // Padding(
-        //   padding:
-        //       EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(6)),              
-        //   child: Text("category",textAlign: TextAlign.left),
-        // ),
+        
          
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-        //       StreamBuilder(stream: Firestore.instance.collection('category_space').snapshots(),
-        //        // ignore: missing_return
-        //        builder: (BuildContext context, snapshot){
-                 
-        //          if (!snapshot.hasData) {
-        //     return Center(
-        //       child: Text("hello error"),
-        //     );
-        //   }
-  
-          // return ListView(
-          //   children: snapshot.data.documents.map((document) {
-          //     return Container(
-          //       child: Center(child: Text(document['name'])),
-          //     );
-          //   }).toList(),
-          // );
-              //  }
-              //  ),
-               
-              CategoryCard(imgName:"imgs/o4.jpg",categoryName:"office",routeName:CategoryWiseProductPage.routeName),
-               CategoryCard(imgName:"imgs/o5.jpg",categoryName:"meeting space",routeName:CategoryWiseProductPage.routeName),
-              SizedBox(width: getProportionateScreenWidth(20)),
-            ],
+          child: SizedBox(
+            height: 150,
+            width: MediaQuery. of(context). size. width,
+            child: ListView.builder
+              (
+                scrollDirection: Axis.horizontal,
+                itemCount: curcat.itemCount,
+                itemBuilder: (BuildContext ctxt, int index) {
+                  return CategoryCard(catinfo: curcat.myCat[index],routeName:CategoryWiseProductPage.routeName);
+                }
+            ),
           ),
+        //    Row(
+        //     children: [
+        // //       StreamBuilder(stream: Firestore.instance.collection('category_space').snapshots(),
+        // //        // ignore: missing_return
+        // //        builder: (BuildContext context, snapshot){
+                 
+        // //          if (!snapshot.hasData) {
+        // //     return Center(
+        // //       child: Text("hello error"),
+        // //     );
+        // //   }
+  
+        //   // return ListView(
+        //   //   children: snapshot.data.documents.map((document) {
+        //   //     return Container(
+        //   //       child: Center(child: Text(document['name'])),
+        //   //     );
+        //   //   }).toList(),
+        //   // );
+        //       //  }
+        //       //  ),
+               
+        //       CategoryCard(imgName:"imgs/o4.jpg",categoryName:"office",routeName:CategoryWiseProductPage.routeName),
+        //        CategoryCard(imgName:"imgs/o5.jpg",categoryName:"meeting space",routeName:CategoryWiseProductPage.routeName),
+              // SizedBox(width: getProportionateScreenWidth(20)),
+        //     ],
+        //   ),
+        // ),
         ),
-      ],
+        ],
     );
   }
 }
@@ -60,23 +75,25 @@ class CategoryOfPlace extends StatelessWidget {
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
     Key key,
-    @required this.imgName,
-    @required this.categoryName,
+    @required this.catinfo,
+    // @required this.categoryName,
     @required this.routeName
   }) : super(key: key);
-  final String imgName;
-  final String categoryName;
+  // final String imgName;
+  // final String categoryName;
   final String routeName;
+  final Category catinfo;
 
   @override
   Widget build(BuildContext context) {
     return SpecialOfferCard(
-      image: imgName,
-      category: categoryName,
+      image: catinfo.img,
+      category: catinfo.name,
       numOfBrands: 18,
       press: () {
         if(selectedLocation.isNotEmpty)
-            Navigator.pushNamed(context,routeName,arguments:{'SpaceCategory':categoryName});
+            // Navigator.pushNamed(context,routeName,arguments:{'SpaceCategory':catinfo.name,'prolist':catinfo.placeSearchProperty.toList()});
+            Navigator.pushNamed(context,routeName,arguments:{'SpaceCategory':catinfo});            
         else
            {             
              // ignore: deprecated_member_use

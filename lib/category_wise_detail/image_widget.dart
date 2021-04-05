@@ -1,19 +1,17 @@
 // import 'dart:async';
+import 'package:coworking_space/category_wise_detail/car.dart';
 import 'package:flutter/material.dart';
 import 'package:coworking_space/constants.dart';
 import 'placedetailpage.dart';
 
 // ignore: must_be_immutable
 class ImageWidget extends StatelessWidget {
-  House house;
-  // ignore: non_constant_identifier_names
-  int imgpath_index;
-  List<String> imageList;
+  
+  SpaceInfo info;
+  
 
   ImageWidget(
-    this.house,
-    this.imgpath_index,
-    this.imageList,
+    this.info,    
   );
 
   @override
@@ -37,9 +35,10 @@ class ImageWidget extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => LayoutStarts(
                     // ItemDetailScreen(//PersonalPlaceDetail(),
-                    this.house,
-                    this.imgpath_index,
-                    this.imageList,
+                    info:this.info,
+                    // this.house,
+                    // this.imgpath_index,
+                    // this.imageList,
                   ),
                 ),
               );
@@ -53,7 +52,7 @@ class ImageWidget extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(
-                    imageList[imgpath_index],
+                    "imgs/o6.jpg"                  
                   ),
                 ),
               ),
@@ -71,7 +70,9 @@ class ImageWidget extends StatelessWidget {
                         color: favcolor,
                         borderRadius: BorderRadius.circular(18),
                       ),
-                      child: Favstorecard(imgIndex: imgpath_index),
+                      // child: Favstorecard(imgIndex: imgpath_index),
+                      child: Favstorecard(imgIndex: 0),
+                      
                     ),
                   ),
                 ],
@@ -87,7 +88,9 @@ class ImageWidget extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text(
-                  "\$" + house.amount.toString(),
+                  "\$" + info.price.toString(),
+                  // "\$ 200" ,
+                  
                   // style: GoogleFonts.notoSans(
                   //   fontSize: 22,
                   //   fontWeight: FontWeight.w600,
@@ -99,7 +102,8 @@ class ImageWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    house.address,
+                    // house.address,
+                    "b-164"
                     // style: GoogleFonts.notoSans(
                     //   fontSize: 15,
                     //   color: ColorConstant.kGreyColor,

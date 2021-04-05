@@ -1,9 +1,10 @@
+import 'package:coworking_space/category_wise_detail/car.dart';
 import 'package:flutter/material.dart';
-import 'package:coworking_space/category_wise_detail/personal_space_main.dart';
+// import 'package:coworking_space/category_wise_detail/personal_space_main.dart';
 
 import 'list_all_item_in_way.dart';
 
- features(double sheetItemHeight) {
+ features(double sheetItemHeight,SpaceInfo info) {
     return Container(
       // padding: EdgeInsets.only(top: 15),
       padding: EdgeInsets.only(top: 15, left: 10),
@@ -23,11 +24,11 @@ import 'list_all_item_in_way.dart';
             height: sheetItemHeight,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: currentCar.features.length,
+              itemCount: info.spaces.spaceinfo.length,
               itemBuilder: (context, index) {
                 return ListItem(
                   sheetItemHeight: sheetItemHeight,
-                  mapVal: currentCar.features[index],
+                  mapval: info.spaces.spaceinfo[index],
                 );
               },
             ),

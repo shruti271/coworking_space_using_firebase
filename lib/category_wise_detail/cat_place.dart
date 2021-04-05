@@ -1,6 +1,10 @@
+import 'package:coworking_space/category_wise_detail/car.dart';
+import 'package:coworking_space/category_wise_detail/category.dart';
+// import 'package:coworking_space/category_wise_detail/category.dart';
 import 'package:coworking_space/screens/home/components/search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 // import 'package:coworking_space/screens/home/components/search_field.dart';
 import '../constants.dart';
 import 'filter_widget.dart';
@@ -21,9 +25,14 @@ class CategoryWiseProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Map arguments=ModalRoute.of(context).settings.arguments as Map;
+    final Category cdata = arguments['SpaceCategory'];
     // ignore: unused_local_variable
     var screenWidth = MediaQuery.of(context).size.width;
     // var selected = [];
+    
+    Pacenotifier place = Provider.of<Pacenotifier>(context,listen: false);
+    
+    
 
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
@@ -58,7 +67,7 @@ class CategoryWiseProductPage extends StatelessWidget {
                     iconImg: Icons.subject,
                     iconColor: ColorConstant.kBlackColor,
                   ),                  
-                  Text(arguments['SpaceCategory'],style: TextStyle(fontSize: 30,color: Colors.black),),
+                  Text(cdata.name,style: TextStyle(fontSize: 30,color: Colors.black),),
                   MenuWidget(
                     iconImg: Icons.add_shopping_cart,
                     iconColor: ColorConstant.kBlackColor,
@@ -96,14 +105,15 @@ class CategoryWiseProductPage extends StatelessWidget {
               ),
               Container(
                 height: 50,
+                width: double.infinity,
                 child:
                 ListView.separated(
                   shrinkWrap: false,
                   scrollDirection: Axis.horizontal,                     
-                  itemCount: filterArray.length,
+                  itemCount:cdata.placeSearchProperty.length,
                   itemBuilder: (context, index) {
                     return FilterChipScreen(
-                      filterTxt: filterArray[index],
+                      filterTxt: cdata.placeSearchProperty[index],
                     );
                   },
                   separatorBuilder: (context, index){
@@ -117,14 +127,15 @@ class CategoryWiseProductPage extends StatelessWidget {
               ),
               Column(
                 children: List.generate(
-                  Constants.houseList.length,
+                  // Constants.houseList.length,
+                  place.itemCount,                  
                   (index) {
                     return Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: ImageWidget(
-                        Constants.houseList[index],
-                        index,
-                        Constants.imageList,
+                        place.spaceInfo[index],
+                        // index,
+                        // Constants.imageList,
                       ),
                     );
                   },

@@ -2,20 +2,29 @@ import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
   final double sheetItemHeight;
-  final Map mapVal;
+  // final Map mapVal;
+  final Map<Icon, String> mapval;
 
-  ListItem({this.sheetItemHeight, this.mapVal});
+  ListItem({this.sheetItemHeight, this.mapval});
 
   @override
   Widget build(BuildContext context) {
     var innerMap;
     bool isMap;
 
-    if (mapVal.values.elementAt(0) is Map) {
-      innerMap = mapVal.values.elementAt(0);
+// if(mapval.isEmpty)
+// {
+//   innerMap = mapval;
+//       isMap = false;
+// }else{
+//    innerMap = mapval;
+//       isMap = true;
+// }
+    if (mapval.values.elementAt(0) is Map) {
+      innerMap = mapval.values.elementAt(0);
       isMap = true;
     } else {
-      innerMap = mapVal;
+      innerMap = mapval;
       isMap = false;
     }
 
@@ -32,7 +41,7 @@ class ListItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          mapVal.keys.elementAt(0),
+          mapval.keys.elementAt(0),
           isMap
               ? Text(innerMap.keys.elementAt(0),
                   textAlign: TextAlign.center,
