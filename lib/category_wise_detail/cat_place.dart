@@ -53,8 +53,8 @@ class CategoryWiseProductPage extends StatelessWidget {
       body: SingleChildScrollView(//it will remove error of yellow color when all widget can't come in 1 page ,- provide scroll it has properties also
         child: Padding(
           padding: const EdgeInsets.only(
-            left: 15,
-            right: 15,
+            left: 5,
+            right: 5,
             top: 35,
           ),
           child: Column(

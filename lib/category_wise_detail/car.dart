@@ -1,8 +1,104 @@
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 double iconSize = 30;
+
+class SpaceInfo {
+  final int id;
+  List<String> img=[];    
+  final String spacename;
+  final double price;
+  List<Map<Icon, String>> amenities;
+  List<Map<Icon, String>> spaceinfo;
+  // Features spaces;
+  double placeofcity;
+  String overview;
+  String address;
+  int rating;
+
+  SpaceInfo({
+    // @required this.spaces,
+    @required this.amenities,
+    @required this.spaceinfo,
+    @required this.id,
+    @required this.spacename,
+    @required this.price,
+    @required this.img,
+    // @required this.placeofcity,
+    // @required this.overview,
+    @required this.address,
+    // @required this.rating,
+  });
+}
+class Features{
+  List<Map<Icon, String>> amenities;
+  List<Map<Icon, String>> spaceinfo;
+
+  int totalList=2;
+
+  Features({   
+    @required this.amenities,
+    @required this.spaceinfo,
+  });
+}
+
+
+class Pacenotifier with ChangeNotifier{
+
+  List<SpaceInfo> _allSpace=[
+    SpaceInfo(
+  id: 1,
+  spacename: 'whitelion',
+  // spaces: 
+    //  Features(
+        amenities: [
+          {Icon(Icons.print_sharp, size: iconSize): "printer"},
+          {Icon(Icons.ac_unit_rounded, size: iconSize): "A/C"},
+        ],
+        spaceinfo: [
+          {Icon(Icons.set_meal, size: iconSize): "seat"},
+          {Icon(Icons.wifi, size: iconSize): "wifi"}
+          ],
+          // ),  
+  img: ["imgs/o6.jpg","imgs/o7.jpg","imgs/o8.jpg"],     
+  address: 'c-67,utran',
+  price: 200,
+
+),
+SpaceInfo(
+  id: 2,
+  spacename: 'truline',
+  // spaces: 
+  //    Features(
+        amenities: [
+          {Icon(Icons.print_sharp, size: iconSize): "printer"},
+          {Icon(Icons.ac_unit_rounded, size: iconSize): "A/C"},
+        ],
+        spaceinfo: [
+          {Icon(Icons.set_meal, size: iconSize): "seat"},
+          {Icon(Icons.wifi, size: iconSize): "wifi"}
+          ],
+          // ),  
+  img: ["imgs/o7.jpg","imgs/o6.jpg","imgs/o8.jpg"],     
+  address: 't-5,rahul raj mall',
+
+  price: 400,
+
+)
+  ];
+ 
+      List<SpaceInfo> get spaceInfo {
+    return [..._allSpace];
+  }
+
+  int get itemCount {
+    return _allSpace.length;
+  }
+
+    SpaceInfo findById(int id) {
+    return _allSpace.firstWhere((pdt) => pdt.id == id);
+  }
+
+}
 
 // CarList carList = CarList(cars: [
 //   Car(companyName: "Chevrolet", carName: "Corvette", price: 2100, imgList: [
@@ -139,97 +235,3 @@ double iconSize = 30;
 
 // );
 
-
-
-
-class SpaceInfo {
-  final int id;
-  List<String> img=[];    
-  final String spacename;
-  final double price;
-  Features spaces;
-  double placeofcity;
-  String overview;
-  String address;
-  int rating;
-
-  SpaceInfo({
-    @required this.spaces,
-    @required this.id,
-    @required this.spacename,
-    @required this.price,
-    @required this.img,
-    // @required this.placeofcity,
-    // @required this.overview,
-    @required this.address,
-    // @required this.rating,
-  });
-}
-class Features{
-  List<Map<Icon, String>> amenities;
-  List<Map<Icon, String>> spaceinfo;
-
-  Features({   
-    @required this.amenities,
-    @required this.spaceinfo,
-  });
-}
-
-
-class Pacenotifier with ChangeNotifier{
-
-  List<SpaceInfo> _allSpace=[
-    SpaceInfo(
-  id: 1,
-  spacename: 'whitelion',
-  spaces: 
-     Features(
-        amenities: [
-          {Icon(Icons.print_sharp, size: iconSize): "printer"},
-          {Icon(Icons.ac_unit_rounded, size: iconSize): "A/C"},
-        ],
-        spaceinfo: [
-          {Icon(Icons.set_meal, size: iconSize): "seat"},
-          {Icon(Icons.wifi, size: iconSize): "wifi"}
-          ]
-          ),  
-  img: ["imgs/o6.jpg","imgs/o7.jpg","imgs/o8.jpg"],     
-  address: 'c-67,utran',
-  price: 200,
-
-),
-SpaceInfo(
-  id: 2,
-  spacename: 'truline',
-  spaces: 
-     Features(
-        amenities: [
-          {Icon(Icons.print_sharp, size: iconSize): "printer"},
-          {Icon(Icons.ac_unit_rounded, size: iconSize): "A/C"},
-        ],
-        spaceinfo: [
-          {Icon(Icons.set_meal, size: iconSize): "seat"},
-          {Icon(Icons.wifi, size: iconSize): "wifi"}
-          ]
-          ),  
-  img: ["imgs/o7.jpg","imgs/o6.jpg","imgs/o8.jpg"],     
-  address: 't-5,rahul raj mall',
-
-  price: 400,
-
-)
-  ];
- 
-      List<SpaceInfo> get spaceInfo {
-    return [..._allSpace];
-  }
-
-  int get itemCount {
-    return _allSpace.length;
-  }
-
-    SpaceInfo findById(int id) {
-    return _allSpace.firstWhere((pdt) => pdt.id == id);
-  }
-
-}

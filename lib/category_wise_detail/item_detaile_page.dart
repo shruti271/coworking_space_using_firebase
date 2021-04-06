@@ -37,7 +37,7 @@ class ItemDetailScreen extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(top: 0, bottom: 10),
                   child: SizedBox(
-                    height: 300.0,
+                    height: 320.0,
                     width: screenWidth,
                     child: Carousel(
                       images: [
@@ -50,7 +50,7 @@ class ItemDetailScreen extends StatelessWidget {
                       ],
                       showIndicator: true,
                       borderRadius: false,
-                      moveIndicatorFromBottom: 400.0,
+                      moveIndicatorFromBottom: 10.0,
                       noRadiusForIndicator: true,
                       overlayShadow: false,
                       overlayShadowColors: Colors.white,

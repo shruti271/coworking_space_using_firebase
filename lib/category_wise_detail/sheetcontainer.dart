@@ -1,19 +1,25 @@
-import 'package:coworking_space/category_wise_detail/car.dart';
+import 'package:coworking_space/category_wise_detail/spacefacility.dart';
 import 'package:coworking_space/google_map/map_body.dart';
 import 'package:flutter/material.dart';
 import 'buy_button_main.dart';
-import 'features_detail.dart';
-import 'offerdetail_page.dart';
-// import 'features_detail.dart';
 // import 'offerdetail_page.dart';
+import 'car.dart';
 
 // ignore: must_be_immutable
 class SheetContainer extends StatelessWidget {
-  SpaceInfo infosheet;
-  SheetContainer({@required this.infosheet});
+   final SpaceInfo info;  
+   SheetContainer({@required this.info});
+
+  // final int id;   List<String> img=[];  final String spacename;  final double price;  final Features spaces;  List<Map<Icon, String>> amenities;  List<Map<Icon, String>> spaceinfo;  final double placeofcity;  final String overview;  final String address; final int rating;
+  // SheetContainer({@required this.id, @required this.spacename,@required this.price,@required this.amenities,@required this.spaceinfo,@required this.placeofcity,@required this.overview,@required this.address,@required this.rating});
+  
   @override
   Widget build(BuildContext context) {
-    double sheetItemHeight = 110;
+    
+    // double sheetItemHeight = 110;
+    // List<Map<Icon, String>> infoamenities = spaces.amenities ;
+    // List<Map<Icon, String>> infospaceinfo = spaces.spaceinfo ;
+
     return DraggableScrollableSheet(
         initialChildSize: 0.55,
         minChildSize: 0.55,
@@ -29,8 +35,7 @@ class SheetContainer extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
                   color: Color(0xfff1f1f1)),
               child: Column(
-                children: <Widget>[
-                  // drawerHandle(),
+                children: <Widget>[                  
                   Expanded(
                     flex: 1,
                     child: ListView(
@@ -51,9 +56,10 @@ class SheetContainer extends StatelessWidget {
                                 )
                               ])),
                         ),
-                        offerDetails(sheetItemHeight, infosheet),
-                        // specifications(sheetItemHeight),
-                        features(sheetItemHeight, infosheet),
+                        SizedBox(height: 10,),
+                        Spacefacility(amenities: info.amenities, spaceinfo: info.spaceinfo),
+                        // offerDetails(sheetItemHeight, info.amenities),                        
+                        // features(sheetItemHeight, info.spaceinfo),
                         SizedBox(height: 20),
                         GoogleLocation(),
                         SizedBox(height: 220),
@@ -66,15 +72,5 @@ class SheetContainer extends StatelessWidget {
             ),
           );
         });
-
-    // drawerHandle() {
-    //   return Container(
-    //     margin: EdgeInsets.only(bottom: 25),
-    //     height: 3,
-    //     width: 65,
-    //     decoration: BoxDecoration(
-    //         borderRadius: BorderRadius.circular(15), color: Color(0xffd9dbdb)),
-    //   );
-    // }
   }
 }

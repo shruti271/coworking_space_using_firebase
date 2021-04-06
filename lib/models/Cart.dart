@@ -39,8 +39,7 @@ class CartBox with ChangeNotifier {
   // CategoryNotifier mycat=Provider.of<CategoryNotifier>(context,listen: false);
   Map<String, Cart> _demoCarts = {
      "5":Cart(id:5,
-      product: SpaceInfo(spaces: 
-      Features(
+      product: SpaceInfo(      
         amenities: [
           {Icon(Icons.print_sharp, size: iconSize): "printer"},
           {Icon(Icons.ac_unit_rounded, size: iconSize): "A/C"},
@@ -48,8 +47,7 @@ class CartBox with ChangeNotifier {
         spaceinfo: [
           {Icon(Icons.set_meal, size: iconSize): "seat"},
           {Icon(Icons.wifi, size: iconSize): "wifi"}
-          ]
-          ),
+          ],          
            id: 1, 
            spacename: 'creative',
            price: 200, 
