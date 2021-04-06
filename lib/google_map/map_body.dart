@@ -99,6 +99,7 @@ class _GoogleLocationState extends State<GoogleLocation> {
                     materialTapTargetSize: MaterialTapTargetSize.padded,
                     backgroundColor: Colors.green,
                     child: const Icon(Icons.map, size: 36.0),
+                    // heroTag: 'tag1',
                   ),
                   SizedBox(height: 16.0),
                   FloatingActionButton(
@@ -106,6 +107,7 @@ class _GoogleLocationState extends State<GoogleLocation> {
                     materialTapTargetSize: MaterialTapTargetSize.padded,
                     backgroundColor: Colors.green,
                     child: const Icon(Icons.add_location, size: 36.0),
+                    // heroTag: 'tag2',
                   ),
                   SizedBox(height: 16.0),
                   FloatingActionButton(
@@ -116,6 +118,7 @@ class _GoogleLocationState extends State<GoogleLocation> {
                     materialTapTargetSize: MaterialTapTargetSize.padded,
                     backgroundColor: Colors.green,
                     child: const Icon(Icons.location_on, size: 36.0),
+                    // heroTag: 'tag3',
                   ),
                 ],
               ),

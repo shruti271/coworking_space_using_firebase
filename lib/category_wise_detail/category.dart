@@ -1,11 +1,12 @@
+// import 'package:coworking_space/space_cart/widgets/category.dart';
 import 'package:flutter/cupertino.dart';
 // import 'package:provider/provider.dart';
 
 class Category{
-  final int id; 
-  final String name;
-  final List<String> placeSearchProperty;
-  final String img;
+   int id; 
+   String name;
+   List<String> placeSearchProperty;
+   String img;
   
   Category({
     @required this.id,
@@ -13,6 +14,13 @@ class Category{
     @required this.placeSearchProperty,
     @required this.img
   });
+
+  Category.fromMap(Map<String, dynamic> data){
+    id=data['id'];
+    name=data['name'];
+    placeSearchProperty=data['sub_type'];
+    img=data['image'];
+   }
 }
 
 class CategoryNotifier with ChangeNotifier{
@@ -21,7 +29,15 @@ class CategoryNotifier with ChangeNotifier{
    Category(id: 1,name: "meeting space",placeSearchProperty: ["<5","6 to 15 seat",">16 seat","projector/LED","free coffee/tea"],img: "imgs/o7.jpg"),
  ];
 
-       List<Category> get myCat {
+ // ignore: unused_field
+ Category _currentcat ;
+
+ set currentcat(Category cat){
+   _currentcat=cat;
+   notifyListeners();
+ }
+ 
+  List<Category> get myCat {
     return [..._myCat];
   }
 

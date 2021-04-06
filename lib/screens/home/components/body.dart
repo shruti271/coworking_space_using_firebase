@@ -1,4 +1,4 @@
-// import 'package:coworking_space/google_map/map_body.dart';
+// import 'package:coworking_space/google_map/coworking_space.dart';
 // import 'package:coworking_space/models/Cart.dart';
 import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';

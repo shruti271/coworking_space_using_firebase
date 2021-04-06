@@ -9,10 +9,23 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 // import 'section_title.dart';
 
-class CategoryOfPlace extends StatelessWidget {
+class CategoryOfPlace extends StatefulWidget {  
   const CategoryOfPlace({
     Key key,
   }) : super(key: key);
+
+  @override
+  _CategoryOfPlaceState createState() => _CategoryOfPlaceState();
+}
+
+class _CategoryOfPlaceState extends State<CategoryOfPlace> {
+  
+  @override
+  void initState() { 
+    // CategoryNotifier curcat =Provider.of<CategoryNotifier>(context,listen: false);
+
+    super.initState();    
+  }
 
   @override
   Widget build(BuildContext context) {

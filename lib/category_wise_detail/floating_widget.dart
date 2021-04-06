@@ -21,7 +21,7 @@ class FloatingWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(75.0),
         ),
-        heroTag: null,
+        //heroTag: null,
         child: Ink(
           decoration: BoxDecoration(
             color: ColorConstant.kFABBackColor,

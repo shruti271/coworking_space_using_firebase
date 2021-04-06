@@ -1,18 +1,16 @@
 import 'package:coworking_space/category_wise_detail/car.dart';
 import 'package:coworking_space/models/Cart.dart';
-// import 'package:coworking_space/models/Product.dart';
 import 'package:coworking_space/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:coworking_space/routes.dart';
-// import 'package:coworking_space/screens/splash/splash_screen.dart';
-
-
 import 'package:coworking_space/theme.dart';
 import 'package:provider/provider.dart';
-
 import 'category_wise_detail/category.dart';
-
+// import 'package:firebase_core/firebase_core.dart' ;
+// 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -39,8 +37,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: theme(),
         // home: SplashScreen(),
-        home: HomeScreen(),        
-        // We use routeName so that we dont need to remember the name
+        home: HomeScreen(),                
         // initialRoute: SplashScreen.routeName,//last ma reove this comment
         routes: routes,
         // routes: {

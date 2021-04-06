@@ -2,7 +2,6 @@ import 'package:coworking_space/category_wise_detail/spacefacility.dart';
 import 'package:coworking_space/google_map/map_body.dart';
 import 'package:flutter/material.dart';
 import 'buy_button_main.dart';
-// import 'offerdetail_page.dart';
 import 'car.dart';
 
 // ignore: must_be_immutable
